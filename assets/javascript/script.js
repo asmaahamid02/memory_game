@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const second_card = cards_ids[1]
     console.log(first_card)
     if (clickedCards[0] === clickedCards[1]) {
-      found_counter++
+      found_counter += 2
       //   console.log('matched')
       cards[first_card].setAttribute('src', './assets/images/blank.png')
       cards[second_card].setAttribute('src', './assets/images/blank.png')
@@ -89,6 +89,21 @@ document.addEventListener('DOMContentLoaded', () => {
     cards_ids = []
 
     found_num.textContent = found_counter
+
+    if (found_counter == total_cards) {
+      const container = document.querySelector('.container')
+      const title = document.querySelector('#title')
+      const div = document.createElement('div')
+      const h2 = document.createElement('h2')
+      h2.textContent = 'Congrats! You Won!'
+      const button = document.createElement('button')
+      button.id = 'restart'
+      button.textContent = 'Restart'
+
+      container.insertBefore(div, title)
+      div.appendChild(h2)
+      div.appendChild(button)
+    }
   }
 
   const flipCards = (element) => () => {
