@@ -6,76 +6,37 @@
   box-sizing: border-box;
 }
 
-img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
 body {
+  height: 100vh;
   background-color: #eee;
-}
-
-.container {
-  margin: 0 auto;
-  padding: 50px 20px;
+  display: flex;
 }
 
 .cards-container {
-  display: grid;
-  grid-template-areas: 'one' 'two' 'three' 'four' 'five' 'six';
-  grid-template-columns: repeat(3, auto);
-  gap: 10px;
   width: 600px;
   height: 600px;
-  margin: 0 auto;
-}
-
-.cards-container > *:nth-child(1) {
-  grid-area: 'one';
-}
-
-.cards-container > *:nth-child(2) {
-  grid-area: 'two';
-}
-
-.cards-container > *:nth-child(3) {
-  grid-area: 'three';
-}
-
-.cards-container > *:nth-child(4) {
-  grid-area: 'four';
-}
-.cards-container > *:nth-child(5) {
-  grid-area: 'five';
-}
-.cards-container > *:nth-child(6) {
-  grid-area: 'six';
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
 }
 
 .card {
-  background-color: #eee;
-  border: 1px solid #333;
-  border-radius: 10px;
-  justify-content: center;
-  align-items: center;
-  /* padding: 10px; */
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: all 0.5s ease;
-  display: flex;
-  flex-direction: column;
+  width: calc(33.33% - 10px);
+  position: relative;
+  margin: 5px;
+  transform: scale(1);
+}
+
+.card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
 }
 
 .front,
 .back {
-  text-align: center;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
   width: 100%;
-  height: 100%;
-}
-
-.front {
-  display: none;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: rgb(0, 0, 0, 0.1);
 }
