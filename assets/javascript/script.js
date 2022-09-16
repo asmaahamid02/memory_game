@@ -60,16 +60,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const flips_num = document.querySelector('.flips-num')
   const found_num = document.querySelector('.found-num')
 
-  const clickedCards = []
-  const cards_ids = []
+  let clickedCards = []
+  let cards_ids = []
   const total_cards = 6
-  const flips_counter = 0
-  const found_counter = 0
+  let flips_counter = 0
+  let found_counter = 0
 
   flips_num.textContent = flips_counter
   found_num.textContent = found_counter
 
+  const checkMatched = () => {
+    const cards = document.querySelectorAll('img')
+
+    const first_card = cards_ids[0]
+    const second_card = cards_ids[1]
+    console.log(first_card)
+    if (clickedCards[0] === clickedCards[1]) {
+      found_counter++
+      //   console.log('matched')
+      cards[first_card].setAttribute('src', './assets/images/blank.png')
+      cards[second_card].setAttribute('src', './assets/images/blank.png')
+    } else {
+      //   console.log('not matched')
+      cards[first_card].setAttribute('src', './assets/images/front.png')
+      cards[second_card].setAttribute('src', './assets/images/front.png')
+    }
+    clickedCards = []
+    cards_ids = []
+
+    found_num.textContent = found_counter
+  }
+
   const flipCards = (element) => () => {
+    flips_counter++
+    flips_num.textContent = flips_counter
     if (clickedCards.length != 2) {
       let card_id = element.dataset.id
       // console.log(card_id)
@@ -79,8 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
         cards_ids.push(card_id)
         element.setAttribute('src', cardsList[card_id].src)
 
+        console.log(clickedCards.length)
         if (clickedCards.length == 2) {
-          setTimeout(checkMatched, 600)
+          setTimeout(checkMatched, 500)
         }
       }
     }
