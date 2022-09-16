@@ -109,20 +109,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const flipCards = (element) => () => {
-    flips_counter++
-    flips_num.textContent = flips_counter
-    if (clickedCards.length != 2) {
-      let card_id = element.dataset.id
-      // console.log(card_id)
+    if (!cards_ids.includes(element.dataset.id)) {
+      flips_counter++
+      flips_num.textContent = flips_counter
+      if (clickedCards.length != 2) {
+        let card_id = element.dataset.id
+        // console.log(card_id)
 
-      if (element.getAttribute('src') !== './assets/images/blank.png') {
-        clickedCards.push(cardsList[card_id].name)
-        cards_ids.push(card_id)
-        element.setAttribute('src', cardsList[card_id].src)
+        if (element.getAttribute('src') !== './assets/images/blank.png') {
+          clickedCards.push(cardsList[card_id].name)
+          cards_ids.push(card_id)
+          element.setAttribute('src', cardsList[card_id].src)
 
-        console.log(clickedCards.length)
-        if (clickedCards.length == 2) {
-          setTimeout(checkMatched, 500)
+          console.log(clickedCards.length)
+          if (clickedCards.length == 2) {
+            setTimeout(checkMatched, 500)
+          }
         }
       }
     }
