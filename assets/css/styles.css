@@ -1,0 +1,88 @@
+/*CSS Reset*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #eee;
+  display: flex;
+}
+
+.container {
+  width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin: 20px 12px;
+}
+
+.cards-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.cards-container > img {
+  width: 33.33%;
+  height: auto;
+}
+
+.controls {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  color: #01750f;
+}
+
+p > span {
+  color: #333;
+}
+
+.win {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 20px 10px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+}
+
+.win > h2 {
+  padding: 20px;
+}
+
+.win > .restart {
+  background-color: #01750f;
+  padding: 20px 30px;
+  border-radius: 9999px;
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.restart:hover {
+  background-color: rgb(1, 117, 15, 0.8);
+  font-weight: bold;
+}
+
+.none {
+  display: none;
+}
