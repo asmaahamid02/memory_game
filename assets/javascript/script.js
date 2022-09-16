@@ -91,20 +91,27 @@ document.addEventListener('DOMContentLoaded', () => {
     found_num.textContent = found_counter
 
     if (found_counter == total_cards) {
-      const container = document.querySelector('.container')
-      const title = document.querySelector('#title')
-      const div = document.createElement('div')
-      div.classList.add('win')
-      const h2 = document.createElement('h2')
-      h2.textContent = 'Congrats! You Won!'
-      const restart_btn = document.createElement('button')
-      restart_btn.classList.add('restart')
-      restart_btn.textContent = 'Restart'
-      restart_btn.addEventListener('click', () => window.location.reload())
+      setTimeout(() => {
+        const container = document.querySelector('.container')
+        const title = document.querySelector('#title')
+        const div = document.createElement('div')
+        div.classList.add('win')
+        const h2 = document.createElement('h2')
+        h2.textContent = 'Congrats! You Won!'
+        const restart_btn = document.createElement('button')
+        restart_btn.classList.add('restart')
+        restart_btn.textContent = 'Restart'
+        restart_btn.addEventListener('click', () => window.location.reload())
 
-      container.insertBefore(div, title)
-      div.appendChild(h2)
-      div.appendChild(restart_btn)
+        container.insertBefore(div, title)
+        div.appendChild(h2)
+        div.appendChild(restart_btn)
+
+        const controls = document.querySelector('.controls')
+        title.classList.add('none')
+        cards_container.classList.add('none')
+        controls.classList.add('none')
+      }, 0)
     }
   }
 

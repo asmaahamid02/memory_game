@@ -90,6 +90,10 @@ p > span {
   background-color: rgb(1, 117, 15, 0.8);
   font-weight: bold;
 }
+
+.none {
+  display: none;
+}
 /* .cards-container {
   width: 700px;
   height: 500px;
