@@ -68,4 +68,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   flips_num.textContent = flips_counter
   found_num.textContent = found_counter
+
+  const flipCards = (element) => () => {
+    if (clickedCards.length != 2) {
+      let card_id = element.dataset.id
+      // console.log(card_id)
+
+      if (element.getAttribute('src') !== './assets/images/blank.png') {
+        clickedCards.push(cardsList[card_id].name)
+        cards_ids.push(card_id)
+        element.setAttribute('src', cardsList[card_id].src)
+
+        if (clickedCards.length == 2) {
+          setTimeout(checkMatched, 600)
+        }
+      }
+    }
+  }
+
+  const createCards = () => {
+    for (let i = 0; i < cardsList.length; i++) {
+      let card = document.createElement('img')
+      card.setAttribute('src', './assets/images/front.png')
+      card.setAttribute('data-id', i)
+      card.addEventListener('click', flipCards(card))
+      cards_container.appendChild(card)
+    }
+  }
+  createCards()
 })
