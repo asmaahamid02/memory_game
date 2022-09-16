@@ -94,15 +94,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const container = document.querySelector('.container')
       const title = document.querySelector('#title')
       const div = document.createElement('div')
+      div.classList.add('win')
       const h2 = document.createElement('h2')
       h2.textContent = 'Congrats! You Won!'
-      const button = document.createElement('button')
-      button.id = 'restart'
-      button.textContent = 'Restart'
+      const restart_btn = document.createElement('button')
+      restart_btn.classList.add('restart')
+      restart_btn.textContent = 'Restart'
+      restart_btn.addEventListener('click', () => window.location.reload())
 
       container.insertBefore(div, title)
       div.appendChild(h2)
-      div.appendChild(button)
+      div.appendChild(restart_btn)
     }
   }
 
@@ -135,5 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
       cards_container.appendChild(card)
     }
   }
+
   createCards()
 })
